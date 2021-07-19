@@ -1,0 +1,66 @@
+
+.travel_page{
+    cursor: pointer;
+    background-image: url("images/island.png");
+    background-color: rgb(0, 255, 226);
+    background-size: 10% 10%;
+}
+
+.home_page{
+    cursor: pointer;
+    background-color: slateblue;
+}
+
+.food_page{
+    cursor: pointer;
+    background-image: url("images/food_bng.png");
+}
+.b-ball_page{
+    cursor: pointer;
+    background-color: rgb(3, 77, 214);
+    background-image: url("images/bball.png");
+    background-size: 10% 10%;
+    position: relative;
+    animation: mymove 10s infinite;
+}
+
+.gaming_page{
+    background-image: url("images/sega.png");
+    background-color: rgb(255, 255, 255);
+    background-size: 10% 10%;
+}
+
+.gamingh1{
+    color: rgb(0, 0, 0);
+}
+
+@keyframes mybounce{
+    from{top:0px;}
+    to {bottom: 500px;}
+}
+
+div#main-menu ul, div#b-ball-menu ul, div#travel-menu ul{
+    list-style-type: none;
+    font-size: 200%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: orange;
+}
+
+.Sonic{
+    src: "images/sonic.png";
+}
+
+p{
+    display: block;
+    font-size: 150%;
+    color: rgb(248, 29, 0);
+    align-items: center;
+    position: relative;
+    margin: inherit;
+    padding: 1.5px 1.5px 1.5px;
+    width: 100%;
+    font-size: clamp(14px,5vw);
+    line-height: 1.5;
+    white-space: normal;
+}
+
