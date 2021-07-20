@@ -1,0 +1,89 @@
+body{
+    background-color: grey;
+}
+
+.gameboard{
+    position: relative;
+    margin:auto;
+    top: -4%;
+    background-color: black;
+    width: 97%;
+    height: 5%;
+    padding: auto;
+}
+
+.gameboard div{
+    position: relative;
+    margin: 2%;
+    top: 2px;
+    right: 16px;
+    width: 9%;
+    height: 55%;
+    padding: 0.35%;
+    left: 90%;
+    color: grey;
+    
+}
+
+.board{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 95%;
+    height: 95%;
+}
+
+
+.rows{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background-color: black;
+    position: relative;
+    width: 98%;
+    height: 90%;
+    top: 2%;
+    left:1%;
+}
+
+.rows > .red{
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    margin-top: 1%;
+    margin-left:.3%;
+    width: 8%;
+    height: 4%;
+}
+
+.rows > .yellow{
+    display: flex;
+    flex-direction: column;
+    background-color: yellow;
+    margin-top: 1%;
+    margin-left:.3%;
+    width: 8%;
+    height: 4%;
+}
+
+
+.rows > .green{
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    margin-top: 1%;
+    margin-left:.3%;
+    width: 8%;
+    height: 4%;
+}
+
+.rows > .blue{
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    margin-top: 1%;
+    margin-left:.3%;
+    width: 8%;
+    height: 4%;
+}
+
