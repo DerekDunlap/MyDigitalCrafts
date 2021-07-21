@@ -2,6 +2,153 @@ body{
     background-color: grey;
 }
 
+.score_bar{
+    position: relative;
+    margin: auto;
+    background-color: BLACK;
+    width: 100%;
+    height: 5%;
+}
+
+.score_points{
+    position:absolute;
+    margin: auto;
+    top:15%;
+    right: 5%;
+    color:grey
+}
+
+.game_board{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin:auto;
+    top: 150%;
+    background-color: black;
+    width: 95%;
+    height: 1650%;
+    padding-top: 3%;
+    padding-bottom: 1.6%;
+}
+
+.game_board div{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 50px;
+    margin: 0.25%;
+}
+
+.red > div{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.game_board .red div{
+    background-color: red;
+    width: 9%;
+}
+
+.yellow > div{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.game_board .yellow div:nth-child(2){
+    margin-right: 20%;
+}
+
+
+.game_board .yellow div:nth-child(3){
+    margin-left: -2.6%;
+}
+
+.game_board .yellow div:nth-child(6){
+    margin-right: -2.6%;
+}
+
+.game_board .yellow div:nth-child(7){
+    margin-left: 20%;
+}
+
+
+.game_board .yellow div{
+    background-color: yellow;
+    width: 9%;
+}
+
+.green > div{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.game_board .green div{
+    background-color: green;
+    width: 9%;
+}
+
+.blue > div{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.game_board .blue div{
+    background-color: blue;
+    width: 9%;
+}
+
+.game_board .player_bar{
+    background-color: gray;
+    position: relative;
+    margin: auto;
+    top: 20%;
+    width: 10%;
+    height: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*body{
+    background-color: grey;
+}
+
 .gameboard{
     position: relative;
     margin:auto;
@@ -54,7 +201,7 @@ body{
     margin-left:.3%;
     width: 8%;
     height: 4%;
-}
+}*/
 
 .rows > .yellow{
     display: flex;
