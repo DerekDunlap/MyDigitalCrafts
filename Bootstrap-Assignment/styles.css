@@ -1,0 +1,48 @@
+.page-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #333;
+}
+
+.image-container{
+    width: 100%;
+
+}
+
+.message-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 15%;
+    color: #333;
+}
+
+.message-container div{
+    padding-top: 10px;
+}
+
+.navbar{
+    color: #777;
+}
+
+.card-title{
+    margin-bottom: 0;
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: inherit;
+}
+
+.card-body{
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+}
+
+.paragraph-box{
+    display: flex;
+    flex-direction: column;
+}
