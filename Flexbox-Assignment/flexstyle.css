@@ -1,0 +1,206 @@
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-container div{
+    margin-top: 10px;
+}
+
+.navigation{
+    display: flex;
+    background-color: #2b2d32;
+    height: 40px;
+    width: 100%;
+    font-family: 'Guardian Text Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.navigation div{
+    color: white;
+    padding-left: 15px;
+}
+
+.ad-box{
+    display: flex;
+    background-image: url("https://store.nba.com/content/ws/all/90437418-ad5a-4521-8a9c-36ab4dc52bd3__1024X90.png");
+    height: 90px;
+    width: 100%;
+}
+
+.image-message-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.message-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 2px;
+}
+
+.message-container div{
+    width: 15%;
+}
+
+.image-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.navigation div{
+    color: white;
+    padding-left: 15px;
+}
+
+.image-message-container div{
+    height: 280px;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.image-message-container .image-1{
+    display: flex;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://s.yimg.com/uu/api/res/1.2/7.mq5h2rL66mvFaFMDpvhQ--~B/Zmk9ZmlsbDtoPTQyMTtweW9mZj0wO3c9NjQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2021-07/6c94ff50-e86f-11eb-b73e-f3a2aeec95fa.cf.webp");
+}
+
+.image-1 div{
+    height: auto;
+}
+
+.image-message-container .image-2{
+    display: flex;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://cdn.mos.cms.futurecdn.net/Rp5Hc6EVkKCHAcWvkrtgv3-970-80.png.webp");
+}
+
+.image-message-container .image-3{
+    display: flex;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://s.yimg.com/uu/api/res/1.2/aQ5vNleEI5xJTQTAL3ggNg--~B/Zmk9ZmlsbDtoPTQyMTtweW9mZj0wO3c9NjQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2021-07/e27254b0-e3ed-11eb-ba5b-f55a8518c94f.cf.jpg");
+}
+
+.image-message-container .image-4{
+    display: flex;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://s.yimg.com/uu/api/res/1.2/2DYkxNFBe4y7F0nDM6SeUw--~B/Zmk9ZmlsbDtoPTQyMTtweW9mZj0wO3c9NjQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2021-07/ff4ea7b0-e937-11eb-b3fb-ec1d260da945.cf.jpg");
+}
+
+.image-message-container .image-5{
+    display: flex;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://s.yimg.com/uu/api/res/1.2/ZoM3VTOIg6Zh8Zloonw1.A--~B/Zmk9ZmlsbDtoPTQyMTtweW9mZj0wO3c9NjQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2021-07/efc921c0-e3d4-11eb-bbbb-fec23b71b516.cf.jpg");
+}
+
+.image-6{
+    display: flex;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://s.yimg.com/uu/api/res/1.2/VQMTM2tz1clZREPNg.aFaA--~B/Zmk9ZmlsbDtoPTQ2OTtweW9mZj0wO3c9NzAzO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2021-07/e4ee27a0-ea23-11eb-b1ff-0bbdf682dcc4.cf.webp");
+}
+
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation:landscape) {
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+    
+}
+
+@media (min-width:320px) and (max-width:480px) {
+
+    .navigation{
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: fit-content;
+        align-items: center;
+    }
+
+    .image-message-container{
+        flex-wrap: wrap;
+    }
+
+    .image-message-container div{
+        margin: auto;
+        height: 1750px;
+        bottom: 10px;
+    }
+
+    .image-container{
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        margin: 0px;
+    }
+
+    .image-container div{
+        flex-direction: column;
+        height: 100px;
+    }
+
+    .image-message-container .image-1{
+        height: inherit;
+    }
+
+    .image-message-container .image-2{
+        height: inherit;
+    }
+
+    .image-message-container .image-3{
+        height: inherit;
+    }
+
+    .image-message-container .image-4{
+        height: inherit;
+    }
+
+    .image-message-container .image-5{
+        height: inherit;
+    }
+
+    .image-message-container .image-6{
+        height: inherit;
+    }
+
+
+    .message-container{
+        flex-direction: column;
+        width: 100%;
+        padding:0%;
+        align-items: center;
+    }
+
+    .message-container div{
+        top: 10px;
+        height: 15px;
+        width: 100%;
+    }
+}
