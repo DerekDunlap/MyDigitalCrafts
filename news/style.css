@@ -1,0 +1,21 @@
+@media (min-width: 320px) and (max-width: 480px) {
+    body{
+        margin: 0;
+    }
+
+    .page-container{
+        width: 100%;
+    }
+    
+    .header-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: large;
+    }
+    
+    ul{
+        list-style-type: none;
+    }
+}
+
