@@ -1,0 +1,22 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <body>
+        <div id="menu-container">
+            Enter Task: <input id="taskName" type="text" placeholder="Task name" required>
+            Priority Level: <select>
+                <option id="priorityLevel" value="High">High</option>
+                <option id="priorityLevel" value="Medium">Medium</option>
+                <option id="priorityLevel" value="Low">Low</option>
+            </select>
+            <button id="addTaskBtn">Add Task</button>
+            <button id="showAllTasks">Show Tasks</button>
+        </div>
+        <div id="task-container">
+            <ul id="tasksUL">
+
+            </ul>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
