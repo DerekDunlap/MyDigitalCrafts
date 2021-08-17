@@ -17,23 +17,21 @@ app.get('/todos',(req,res)=>{
 
 
 app.post('/todos',(req,res)=>{
-    const number=req.body.number
     const title=req.body.title
     const priority=req.body.priority
     const dateCreated=req.body.dateCreated
 
-    const taskItem={number:number,title:title,priority:priority,dateCreated:dateCreated}
+    const taskItem={title:title,priority:priority,dateCreated:dateCreated}
     todoList.push(taskItem)
 
     res.json({message: "Your task has been entered"})
 })
 
-app.delete('/todos/:number',(req,res)=>{
-    const number=req.params.number
-    console.log(number)
+app.delete('/todos/:name',(req,res)=>{
+    const name=req.params.name
     todoList.filter((task)=>{
-        if(task.number==number){
-            todoList.pop(number-1)
+        if(task.title==name){
+            todoList.pop(name)
         }
     })
     res.json({message: "Task has been removed!"})

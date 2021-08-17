@@ -1,21 +1,30 @@
 <html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"/>
     <body>
         <div id="menu-container">
-            Enter Task: <input id="taskName" type="text" placeholder="Task name" required>
-            Priority Level: <select>
-                <option id="priorityLevel" value="High">High</option>
-                <option id="priorityLevel" value="Medium">Medium</option>
-                <option id="priorityLevel" value="Low">Low</option>
-            </select>
-            <button id="addTaskBtn">Add Task</button>
-            <button id="showAllTasks">Show Tasks</button>
+            <div id="input-container">
+                Enter Task: <input id="taskName" type="text" placeholder="Task name" required>
+                Priority Level:<select>
+                    <option id="priorityLevel" value="High">High</option>
+                    <option id="priorityLevel" value="Medium">Medium</option>
+                    <option id="priorityLevel" value="Low">Low</option>
+                </select>
+            </div>
+            <div id="button-container">
+                <button id="addTaskBtn">Add Task</button>
+                <button id="showAllTasks">Show Tasks</button>
+            </div>
         </div>
         <div id="task-container">
-            <ul id="tasksUL">
+            <div id="page-container"><h1>My ToDo List:</h1>
+                <ul id="tasksUL">
 
-            </ul>
+                </ul>
+            </div>
         </div>
         <script src="app.js"></script>
     </body>
