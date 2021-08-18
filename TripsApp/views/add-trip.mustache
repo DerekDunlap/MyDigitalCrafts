@@ -3,7 +3,10 @@
     </head>
     <body>
         <div input="search-container">
-            
+            <form method="POST" action="/my-trip">
+                <input type="text" placeholder="Find My Trip" name="locationName"/>
+                <button>Find!</button>
+            </form>
         </div>
         <div id="input-container">
             <form method="POST" action="/add-trip">

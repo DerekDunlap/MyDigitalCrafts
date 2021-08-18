@@ -4,13 +4,16 @@
     <body>
         <div id="navigation-container">
             <div input="search-container">
+                <form method="POST" action="/my-trip">
+                    <input type="text" placeholder="Find My Trip" name="locationName"/>
+                    <button>Find!</button>
+                </form>
             </div>
-            <h1>Your trips</h1>
+            <h1>My trips</h1>
         </div>
         <div id="trips-container">
-            <h2>hello World</h2>
             <ul>
-                {{#searchTrips}}
+                {{#myTrips}}
                     <li>
                         <form method="POST" action="/remove-trip">
                             <h2>Trip to {{title}}</h2>
@@ -18,7 +21,7 @@
                             <button value={{tripId}} name="tripId">Remove</button>
                         </form>
                     </li>
-                {{/searchTrips}}
+                {{/myTrips}}
             </ul>
         </div>
     </body>

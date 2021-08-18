@@ -45,12 +45,17 @@ app.post('/remove-trip',(req,res)=>{
     res.redirect('/all-trips')
 })
 
-app.get('/my-trip?locationName',(req,res)=>{
+app.get('/my-trip',(req,res)=>{
+    res.render('my-trip',{myTrips:myTrips})
+})
+
+app.post('/my-trip',(req,res)=>{
     const tripName=req.body.locationName
+    console.log(tripName)
     myTrips=trips.filter((trip)=>{
         return trip.title==tripName
     })
-    res.render('/my-trip',{searchTrips:myTrips})
+    res.redirect('/my-trip')
 })
 
 app.listen(3000,()=>{
