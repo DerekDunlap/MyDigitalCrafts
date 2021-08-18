@@ -1,0 +1,29 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div>
+            <form method="POST" action="/movies/create" id="movieform">
+                <input type="text" placeholder="Movie Name" name="movieTitle">
+                <input type="text" placeholder="Movie Desrciption" name="movieDesricption">
+                <input type="text" placeholder="Movie Genre" name="movieGenre">
+                <input type="text" placeholder="Movie Poster" name="moviePosterURL">
+                <button>Add!</button>
+            </form>
+        </div>
+        <div>
+            <h1>Movies Details</h1>
+            <ul>
+                {{#movieDetails}}
+                <form method="POST" action="/movies/delete">
+                    <h1>{{posterURL}}</h1>
+                    <h1>{{title}}</h1>
+                    <span>{{genre}}</span>
+                    <span>{{description}}</span>
+                    <button value={{movieID}} name="movieID">Delete</button>
+                </form>
+                {{/movieDetails}}
+            </ul>
+        </div>
+    </body>
+</html>
