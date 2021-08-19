@@ -1,0 +1,18 @@
+<div>
+    <form method="post" action="/users/login/mydashboard">
+        <div>
+            <span>{{errorMessage}}</span>
+            <span>{{logOutMessage}}</span>
+        </div>
+        Username:<input type="text" placeholder="Username" name="userName"/> 
+        Password:<input type="password" placeholder="Password" name="userPassword"/>
+        <button>Login</button>
+    </form>
+</div>
+<div>
+    <form method="POST" action="/users/create-account">
+        Username:<input type="text" placeholder="Username" name="userName"/>
+        Password:<input type="password" placeholder="Password" name="userPassword"/>
+        <button>Create Account</button>
+    </form>
+</div>
