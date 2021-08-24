@@ -1,71 +1,99 @@
 const express=require('express')
-const mustacheExpress=require('mustache-express')
+const app=express()
 const session=require('express-session')
 const pgp=require('pg-promise')()
-const app=express()
+const bcrypt=require('bcryptjs')
 
-const pgpURL='postgres://kwjaavlx:KdPhdGlvxLR7Jhn5sRqr6c2z9VCSI5ai@chunee.db.elephantsql.com/kwjaavlx'
-const dataBase=pgp(pgpURL)
-const port=3000
-let postAddress=''
+app.use(express.urlencoded())
 
+const mustacheExpress=require('mustache-express')
 app.engine('mustache',mustacheExpress())
 app.set('views','./views')
 app.set('view engine','mustache')
 
-app.use(express.urlencoded())
+app.use(session({
+    secret:'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
 
-//create a new post
-app.post('/create-post',(req,res)=>{
-    let today=new Date()
-    var date=(today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear()
-    const title=req.body.postTitle
-    const body=req.body.postBody
-    const date_created=date
-    const is_published=true
+const connection='postgres://kwjaavlx:KdPhdGlvxLR7Jhn5sRqr6c2z9VCSI5ai@chunee.db.elephantsql.com/kwjaavlx'
+const db=pgp(connection)
 
-    dataBase.none('INSERT INTO posts(title,body,date_created,is_published) VALUES($1, $2, $3, $4)',[title,body,date_created,is_published]).then(()=>{
-        res.redirect('/')
-    })
-})
+//pathway to enable existing user's to log into their personal page
+app.post('/login',(req,res)=>{
+    const username=req.body.username
+    const password=req.body.password
 
-app.post('/update-post/:post_id',(req,res)=>{
-    const post_id=req.params.post_id
-    //dataBase.one('UPDATE posts SET title=$1, body=$2, date_dated=$3 WHERE post_id=$4',[post_id=])
-})
-
-// app.post('/delete-post',(req,res)=>{
-//     const post_id=req.body.post_id
-//     dataBase.one('DELETE FROM posts WHERE post_id=$1',[post_id]).then(()=>{
-//         res.redirect('/')
-//     })
-// })
-
-//get all the posts and renders on page
-app.get('/',(req,res)=>{
-    dataBase.any('SELECT post_id, title, body, date_created, date_updated FROM posts;')
-    .then(posts=>{
-        const postItem=posts.map(function(post){
-            return `/delete-post/${post.post_id}`
+    db.one('SELECT user_id, username, password FROM users WHERE username=$1',[username])
+    .then((user)=>{
+        //function to compare the entered password with actual password stored in db
+        bcrypt.compare(password,user.password,function(error,result){
+            if(result){
+                if(req.session){
+                    req.session.user_id=user.user_id
+                    req.session.username=user.username
+                }
+                res.redirect('/home')
+            }else{
+                res.render('index',{invalidUserMessage:'Invalid username or password!'})
+            }
         })
-        res.render('index',{posts:posts})
     })
 })
 
-app.post('/delete-post/:post_id',(req,res)=>{
-    console.log(req.params.post_id)
-    const post_id=req.params.post_id
-    dataBase.one('DELETE FROM posts WHERE post_id=$1',[post_id])
-    .then(posts=>{
-            res.render('index',{posts:posts})
-    }).catch(error=>{
-        console.log(error)
-        res.render('index',{posts:posts})
-        res.set("Connection", "close");
-        res.end('Connection')
+app.post('/add-post',(req,res)=>{
+    const title=req.body.title
+    const body=req.body.body
+    const is_published=true
+    const user_id=req.session.user_id
+    console.log(req.session.user_id)
+    db.none('INSERT INTO posts(title, body, is_published, user_id) VALUES($1,$2,$3,$4)',[title,body,is_published,user_id])
+    .then(()=>{
+        console.log('New post created!')
+        res.redirect('/home')
     })
 })
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-  })
+//pathway to create a new user account
+app.post('/create-account',(req,res)=>{
+    const username=req.body.username
+    const password=req.body.password
+    
+    bcrypt.genSalt(10,function(error,salt){
+        if(!error){
+            bcrypt.hash(password,salt,function(error,hash){
+                if(!error){
+                    db.none('INSERT INTO users(username,password) VALUES($1,$2)',[username,hash])
+                    .then(()=>{
+                        console.log('New user successfully created!')
+                        res.redirect('/')
+                    })
+                }else{
+                    res.send('Error!')
+                }
+            })
+        }else{
+            res.send('Error!')
+        }
+    })
+})
+
+//pathway to render the homepage of the site
+app.get('/',(req,res)=>{
+    res.render('index')
+})
+
+//pathway to render the user's homepage
+app.get('/home',(req,res)=>{
+    const postUserId=req.session.user_id
+    db.one('SELECT post_id, users.user_id, users.username, title, body, date_created, date_updated FROM users JOIN posts ON users.user_id=$1',[postUserId])
+    .then((userPostInfo)=>{
+        res.render('home',{username:req.session.username,userPostInfo:userPostInfo})
+    })
+    
+})
+
+app.listen(3000, () => {
+    console.log('Server is running...')
+})

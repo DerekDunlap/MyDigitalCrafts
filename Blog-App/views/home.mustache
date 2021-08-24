@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <div>
+            <h1>Welcome, home {{username}}!</h1>
+        </div>
+        <div>
+            <form method="POST" action="/add-post">
+                <div>
+                    <input type="text" placeholder="Don't forget your title, {{username}}" name="title" required>
+                </div>
+                <div>
+                    <input type="text" placeholder="What do you want to say, {{username}}?" name="body" required>
+                    <button>Post it</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <ul>
+            {{#userPostInfo}}
+                <li>
+                    <div>
+                        <div><h4>{{username}}</h4></div>
+                        <div><caption>{{date_created}}</caption></div>
+                    </div>
+                    <div>
+                        <h3>{{title}}</h3> 
+                        <p>{{body}} <button value={{post_id}} name='deletePost'>Delete</button></p>
+                    </div>
+                </li>
+            {{/userPostInfo}}
+            </ul>
+        </div>
+    </body>
+</html>

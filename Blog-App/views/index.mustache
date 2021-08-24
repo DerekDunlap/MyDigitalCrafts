@@ -1,31 +1,21 @@
 <html>
     <body>
+    <div>
+        {{invalidUserMessage}}
+    </div>
         <div>
-            <form method="POST" action="/create-post" id="createPost">
-                <div>
-                    <input type="text" placeholder="Title" name="postTitle">
-                <div>
-                <div>
-                    <input type="text" placeholder="Body" name="postBody">
-                    <button form="createPost">Post!</button>
-                </div>
+            <form method="POST" action="/create-account">
+                <input type="text" placeholder="Username" name="username" required>
+                <input type="text" placeholder="Password" name="password" required>
+                <button>Create Account</button>
             </form>
         </div>
         <div>
-            <h1>Lastest Posts:</h1>
-            <label>{{deletionMessage}}</label>
-            <ul>
-                {{#posts}}
-                    <li>
-                        <form method="POST" action="/delete-post/{{post_id}}" id="deletePost">
-                        {{post_id}}
-                        <h3>{{title}}</h3>
-                        <p>{{body}}</p>
-                        <caption>Date Create: {{date_created}}| Last Updated: {{date_updated}} </caption><button value={{post_id}} name="post_id" form="deletePost">Delete</button>
-                        </form>
-                    </li>
-                {{/posts}}
-            </ul>
+            <form method="POST" action="/login">
+                <input type="text" placeholder="Username" name="username" required>
+                <input type="text" placeholder="Password" name="password" required>
+                <button>Login</button>
+            </form>
         </div>
     </body>
 </html>
