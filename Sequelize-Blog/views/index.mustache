@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <div>
+        <form method="POST" action="/create-post" id="createPost">
+            <div>
+            <input type="text" placeholder="Title" name="title" required>
+            <input type="text" placeholder="Topic" name="category" required>
+            </div>
+            <div>
+            <input type="text" placeholder="Message" name="body" required>
+            </div>
+        </form>
+        <form method="POST" action="/delete-post" id="deletePost">
+        </form>
+        <form method="GET" action="/update" id="updatePost">
+        </form>
+        </div>
+        <div>
+        <label>{{message}}</label>
+        </div>
+        <button form="createPost">Create Post</button>
+        <div><h3>Posts:</h3>
+            <ul>{{#posts}}
+                <li>
+                    <div>Title: {{title}}</div>
+                    <div> Message: {{body}}</div>
+                    <button value={{id}} name="post_id" form="updatePost">Update</button><button value={{id}} name="post_id" form="deletePost">Delete</button>
+                </li>
+            {{/posts}}</ul>
+        </div>
+    </body>
+</html>
